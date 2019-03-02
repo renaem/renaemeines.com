@@ -16,6 +16,7 @@ export default {
     Homepage
   }
 }
+
 </script>
 
 <style lang="scss">
@@ -40,5 +41,9 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0px;
+  }
+
+  .container {
+    position: relative;
   }
 </style>

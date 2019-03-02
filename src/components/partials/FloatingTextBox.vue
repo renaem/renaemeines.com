@@ -24,11 +24,16 @@
     font-size: 24px;
     font-family: serif;
     display: inline-block;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba($lavender-dark, 0.2);
+
+    &.right {
+      float: right;
+    }
 
     h2 {
       margin: 5px 0 0 0;
       font-size: 40px;
+      letter-spacing: -1px;
     }
   }
 </style>

@@ -2,7 +2,7 @@
   <header>
     <div class="container d-flex justify-content-between align-items-center">
       <a href="/">
-        <img alt="Renae Meines" src="../assets/images/general/logo.svg" class="logo">
+        <Logo class="logo"/>
       </a>
       <nav>
         <a href="#about">about</a>
@@ -14,10 +14,15 @@
 </template>
 
 <script>
+import Logo from '../assets/images/general/logo.svg?inline';
+
 export default {
   name: 'Header',
   props: {
     msg: String
+  },
+  components: {
+    Logo
   }
 }
 </script>

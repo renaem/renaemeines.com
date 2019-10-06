@@ -1,13 +1,18 @@
 window.onload = function() { 
   let scene = new THREE.Scene();
   let container = document.getElementById( 'canvas' );
-  let camera = new THREE.PerspectiveCamera( 75, container.offsetWidth / (container.offsetHeight * 2), 0.1, 3000 );
-  let renderer = new THREE.WebGLRenderer({ alpha: true });
+  let camera = new THREE.PerspectiveCamera( 75, container.offsetWidth / (container.offsetHeight * 2), 0.1, 3500 );
+  let renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize( container.offsetWidth, (container.offsetHeight * 2) );
   container.appendChild( renderer.domElement );
 
-  var ambientLight = new THREE.AmbientLight(0x444444);
+  var ambientLight = new THREE.AmbientLight(0xF7486E, 0.8);
   scene.add(ambientLight);
+
+  var pointLight = new THREE.PointLight( 0xFFD0E6, 0.8 );
+  pointLight.position.y = 1500;
+	pointLight.position.z = 1900;
+  scene.add( pointLight );
 
   new THREE.MTLLoader()
     .setPath( 'models/' )
@@ -19,33 +24,28 @@ window.onload = function() {
         .setMaterials( materials )
         .setPath( 'models/' )
         .load( 'desmoines_object.obj', function ( object ) {
-          object.traverse(function(child) {
-            child.castShadow = true;
-            child.receiveShadow = true;
-          });
-
+          object.name = 'SpinningWorld';
+          object.position.y = -400;
           scene.add( object );
         });
     } );
 
-  let spotLight = new THREE.DirectionalLight(0xffffff, 100);
-  // spotLight.castShadow = true;
-  spotLight.position.z = 500;
-  spotLight.position.y = 1000;
-  // spotLight.shadow.mapSize.height = 4096;
-  // spotLight.shadow.camera.near = 0.5;
-  // spotLight.shadow.mapSize.width = 4096;
-  // spotLight.shadow.camera.far = 2048;
-  // spotLight.shadow.bias = 0.0001;
-
-  camera.position.z = 1900;
+  camera.position.z = 2000;
   camera.position.y = 500;
 
-  var animate = function () {
-    scene.rotation.y += 0.003;
+  function animate() {
+    if(scene.getObjectByName('SpinningWorld')) {
+      // wrap to prevent error before load
+      scene.getObjectByName('SpinningWorld').rotation.y += 0.003;
+    }
     requestAnimationFrame( animate );
+    render();
+  }
+  
+  function render() {
+    camera.lookAt( scene.position );
     renderer.render( scene, camera );
-  };
+  }
   
   animate();
 };

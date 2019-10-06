@@ -18,11 +18,11 @@
         }"
       />
       <div class="row">
-        <div class="col-md-6 col-lg-5 mt-5 p-0 copy">
+        <div class="col-md-6 col-lg-5 mt-5 copy">
           <p>I’m a 24-year old UI developer currently living and working in Des Moines, Iowa. You can find me full-time at <a href="https://shiftdsm.com" target="_blank">SHIFT</a>, but I also take on side projects here and there — please reach out if you’re interested!</p>
           <p>I'm passionate about designing functional solutions for whatever problems my clients are trying to tackle — and I've never been afraid to get my hands dirty and learn something new.</p>
         </div>
-        <div class="col-md-6 col-lg-6 offset-lg-1">
+        <div class="col-md-6 col-lg-7">
           <HomepageThree/>
         </div>
       </div>

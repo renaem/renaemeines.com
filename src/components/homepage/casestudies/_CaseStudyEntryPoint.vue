@@ -5,11 +5,11 @@
       <div class="slider__arrows">
         <LeftArrow
           @click="activeSlide('--')"
-          class="slider__arrows_single"
+          v-bind:class="leftArrowClass"
         />
         <RightArrow
           @click="activeSlide('++')"
-          class="slider__arrows_single"
+          v-bind:class="rightArrowClass"
         />
       </div>
     </div>
@@ -90,6 +90,22 @@ export default {
         this.slider_count--;
       }
     }
+  },
+  computed: {
+    leftArrowClass: function() {
+      if(this.slider_count === 1) {
+        return 'slider__arrows_single disabled';
+      } else {
+        return 'slider__arrows_single';
+      }
+    },
+    rightArrowClass: function() {
+      if(this.slider_count === Object.keys(this.case_studies).length) {
+        return 'slider__arrows_single disabled';
+      } else {
+        return 'slider__arrows_single';
+      }
+    }
   }
 }
 </script>
@@ -109,6 +125,7 @@ export default {
       color: $pink;
       display: inline-block;
       margin-right: 30px;
+      width: 80px;
     }
 
     &__arrows {
@@ -118,6 +135,10 @@ export default {
         display: inline-block;
         margin-right: 10px;
         cursor: pointer;
+
+        &.disabled {
+          opacity: 0.25;
+        }
       }
     }
   }

@@ -19,6 +19,7 @@
 
   .floatingtextbox {
     padding: 15px 30px;
+    border-radius: 4px;
     background: $white;
     color: $pink;
     font-size: 24px;

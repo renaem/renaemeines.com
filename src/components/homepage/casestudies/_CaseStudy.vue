@@ -103,10 +103,11 @@ export default {
 
   .image {
     display: inline-block;
-    position: absolute;
+    position: relative;
     z-index: 10;
 
     &:nth-child(2) {
+      position: absolute;
       z-index: 9;
       left: 100px;
       transition: 0.3s;
@@ -117,6 +118,7 @@ export default {
     }
 
     &:nth-child(3) {
+      position: absolute;
       z-index: 8;
       left: 200px;
       transition: 0.3s;

@@ -27,7 +27,7 @@
     "punycode": "^2.1.1",
     "sass-loader": "^7.1.0",
     "strip-ansi": "^5.0.0",
-    "three": "^0.101.1",
+    "three": "^0.125.0",
     "vue": "^2.5.22",
     "vue-animejs": "^2.1.1",
     "vue-fontawesome": "^0.0.2",

@@ -20,7 +20,7 @@
     "dat.gui": "^0.7.5",
     "dayjs": "^1.8.8",
     "jquery": "^3.3.1",
-    "node-sass": "4.12",
+    "node-sass": "7.0",
     "oimo": "^1.0.9",
     "popper.js": "^1.14.7",
     "postcss-loader": "^3.0.0",
